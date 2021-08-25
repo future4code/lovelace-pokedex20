@@ -5,7 +5,7 @@ function PokedexPage() {
     return (
 
         <div>
-            <p>PokedexPage</p>
+            <h2>PokedexPage</h2>
         </div>
     )
 }

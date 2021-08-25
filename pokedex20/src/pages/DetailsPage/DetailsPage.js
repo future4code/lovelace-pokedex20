@@ -5,7 +5,7 @@ function DetailsPage () {
     return (
 
         <div>
-            <p>DetailsPage</p>
+            <h2>DetailsPage</h2>
         </div>
     )
 }
