@@ -1,13 +1,11 @@
 import React from 'react';
 
 function PokedexPage() {
-
-    return (
-
-        <div>
-            <h2>PokedexPage</h2>
-        </div>
-    )
+  return (
+    <div>
+      <h2>PokedexPage</h2>
+    </div>
+  );
 }
 
 export default PokedexPage;

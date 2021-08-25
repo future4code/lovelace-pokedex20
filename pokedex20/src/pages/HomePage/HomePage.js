@@ -1,29 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import useGetPokemons from '../../service/useGetPokemons';
+import Card from '../../components/Card';
 
 function HomePage() {
-    const [pokemons, setPokemons] = useState([])
+  const { pokemons, getPokemons } = useGetPokemons();
 
-    useEffect(() => {
-        axios.get('https://pokeapi.co/api/v2/pokemon?limit=20&offset=0')
-        .then((response) => {
-            setPokemons(response.data.results)
-            console.log(response)
-        })
-    }, [])
+  useEffect(() => {
+    getPokemons();
+  }, []);
 
-    const renderPokemons = pokemons.map((pokemon) => {
-        return <p key={pokemon.name}>{pokemon.name}</p>
-    })
-    
+  const renderPokemons = pokemons.map((pokemon) => {
     return (
-        <div>
-            <h2>HomePage</h2>
-            <Link to={"/PokedexPage"}><button>Pokedex</button></Link>
-            {renderPokemons}
-        </div>
-    )
+      <Card name={pokemon.name} key={pokemon.name}>
+        {pokemon.name}
+      </Card>
+    );
+  });
+
+  return (
+    <div>
+      <h2>HomePage</h2>
+      <Link to={'/PokedexPage'}>
+        <button>Pokedex</button>
+      </Link>
+      {renderPokemons}
+    </div>
+  );
 }
 
 export default HomePage;
