@@ -1,8 +1,8 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
+- João Pedro Correia Barros
+- Guilherme Trindade Mello Médici
 - Pessoa 3
 
 Link do Surge: www.link.com.br
