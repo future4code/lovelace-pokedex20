@@ -6,7 +6,7 @@ const useGetPokemons = () => {
 
   const getPokemons = () => {
     axios
-      .get('https://pokeapi.co/api/v2/pokemon?limit=2&offset=0')
+      .get('https://pokeapi.co/api/v2/pokemon?limit=8&offset=0')
       .then((response) => {
         setPokemons(response.data.results);
       });

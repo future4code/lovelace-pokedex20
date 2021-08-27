@@ -5,21 +5,18 @@ import { useHistory } from 'react-router-dom';
 
 const CardContainer = styled.div`
   border: 1px solid black;
-  width: 40vh;
-  height: 40vh;
-  display: inline-grid;  
-  align-content: end;
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `
 
-const MainContainer = styled.div`
-  display: grid;
-  grid-auto-columns: max-content;
-  grid-auto-flow: dense;
-  grid-auto-rows: minmax(100px, auto);
-  grid-gap: 25px;
-  grid-template-columns: repeat(3, 1fr);
-  
+const ButtonsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 40%;
+  height: 25%;
 `
 
 const Card = (props) => {
@@ -39,14 +36,14 @@ const Card = (props) => {
   details && console.log(details)
 
   return (
-    <MainContainer>
     <CardContainer>
-      <h5>{props.name}</h5>
-      {/* <img src={details.sprites.front_default} alt={props.name} /> */}
-      <button>Add to Pokedex</button>
-      <button onClick={showDetails}>Show Details</button>
+      <img src={details.sprites.front_default} alt={props.name} />
+      <h4>{props.name}</h4>
+      <ButtonsContainer>
+        <button>Capture</button>
+        <button onClick={showDetails}>Show Details</button>
+      </ButtonsContainer>
     </CardContainer>
-    </MainContainer>
   );
 };
 
