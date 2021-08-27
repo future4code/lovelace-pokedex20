@@ -9,6 +9,7 @@ Link do Surge: married-star.surge.sh
 O que funciona:
 - Requisições da API
 - Show details
+- Global state
 
 O que não funciona: 
 - Add to Pokedex
