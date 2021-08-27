@@ -1,6 +1,7 @@
 import React from 'react';
 import Routes from './router/Routes';
 import styled from 'styled-components';
+import GlobalState from './global/GlobalState';
 
 const GlobalStyles = styled.div`
   font-family: Nunito Sans;
@@ -9,7 +10,9 @@ const GlobalStyles = styled.div`
 function App() {
   return (
     <GlobalStyles>
-      <Routes />
+      <GlobalState>
+        <Routes />
+      </GlobalState>
     </GlobalStyles>
   );
 }

@@ -8,9 +8,8 @@ const useGetDetails = () => {
 
   const getDetails = (name) => {
     axios.get(`${url}/${name}`).then((response) => {
-      const spritesEssentials = response.data.sprites;
-      delete spritesEssentials.other;
-      delete spritesEssentials.versions;
+      delete response.data.sprites.other;
+      delete response.data.sprites.versions;
       setDetails({
         name: response.data.name,
         power: {
@@ -23,7 +22,7 @@ const useGetDetails = () => {
         },
         types: response.data.types.map((index) => index.type.name),
         moves: response.data.moves.slice(0, 5).map((index) => index.move.name),
-        sprites: spritesEssentials,
+        sprites: response.data.sprites,
       });
     });
   };

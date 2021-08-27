@@ -16,7 +16,7 @@ function Routes() {
           <PokedexPage />
         </Route>
 
-        <Route exact path={'/pokemon/details'}>
+        <Route exact path={'/pokemon/details/:name'}>
           <DetailsPage />
         </Route>
       </Switch>

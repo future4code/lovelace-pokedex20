@@ -36,7 +36,7 @@ function PokedexPage() {
         <button onClick={goBack}>Voltar para lista</button>
       </HeaderContainer>
       <MainContainer>
-
+        <Card></Card>
       </MainContainer>
     </PokedexContainer>
   );
