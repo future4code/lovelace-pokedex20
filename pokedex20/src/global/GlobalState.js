@@ -18,6 +18,8 @@ const GlobalState = (props) => {
     getPokemons();
   }, []);
 
+  
+
   const state = { pokemons, pokedex };
   const setters = { setPokemons, setPokedex };
   const requests = { getPokemons };

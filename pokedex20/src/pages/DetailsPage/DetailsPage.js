@@ -15,36 +15,61 @@ const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 5px 15px;
 `;
 
 const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border: 1px solid black;
-`
+  margin-top: 10px;
+  margin-bottom: 10px;
+  gap: 10px;
+`;
 
 const Photos = styled.div`
-  display: grid;
-  grid-template-rows: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   border: 1px solid black;
-`
+  align-items: center;
+  justify-content: center;
+`;
+
 const Stats = styled.div`
-  display: grid;
+  display: flex;
+  flex-direction: column;
   border: 1px solid black;
-`
+  align-items: center;
+  justify-content: center;
+`;
+
+const TypesMoves = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 100px;
+`;
+
+const Types = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+`;
+
 const Moves = styled.div`
-  display: grid;
-  grid-template-rows: 1fr 3fr;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border: 1px solid black;
-`
+`;
 
 function DetailsPage() {
   const history = useHistory();
   const { name } = useParams();
   const { details, getDetails } = useGetDetails();
 
-  details && console.log(details);
+  console.log(details);
 
   useEffect(() => {
     getDetails(name);
@@ -67,18 +92,25 @@ function DetailsPage() {
         </Photos>
         <Stats>
           <h3>Stats</h3>
-          <p>HP {details.power.hp}</p>
-          <p>attack {details.power.attack}</p>
-          <p>defense {details.power.defense}</p>
-          <p>special-defense {details.power.specialDefense}</p>
-          <p>speed {details.power.speed}</p>
+          <p>HP - {details && details.power && details.power.hp}</p>
+          <p>Attack - {details && details.power && details.power.attack}</p>
+          <p>Defense - {details && details.power && details.power.defense}</p>
+          <p>Special defense - {details && details.power && details.power.specialDefense}</p>
+          <p>Speed - {details && details.power && details.power.speed}</p>
         </Stats>
-        <Moves>
-          <div>
-            <h5>Type {details.type}</h5>
-            <h5>Type {details.type}</h5>
-          </div>
-        </Moves>
+        <TypesMoves>
+          <Types>
+            <h3>Types</h3>
+            <p>{details && details.types && details.types[0]}</p>
+            <p>{details && details.types && details.types[1]}</p>
+          </Types>
+          <Moves>
+            <h3>Moves</h3>
+            <p>{details && details.moves && details.moves[0]}</p>
+            <p>{details && details.moves && details.moves[1]}</p>
+            <p>{details && details.moves && details.moves[2]}</p>
+          </Moves>
+        </TypesMoves>
       </Container>
       <Footer />
     </PageContainer>

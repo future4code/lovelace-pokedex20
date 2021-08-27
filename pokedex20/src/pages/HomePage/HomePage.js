@@ -6,7 +6,7 @@ import Card from '../../components/Card';
 import Footer from '../../components/Footer';
 import GlobalStateContext from '../../global/GlobalStateContext';
 
-const HomeContainer = styled.div`
+const PageContainer = styled.div`
   display: grid;
   grid-template-rows: 100px 1fr 100px;
   height: 98vh;
@@ -41,7 +41,7 @@ function HomePage() {
   });
 
   return (
-    <HomeContainer>
+    <PageContainer>
       <HeaderContainer>
         <h2>Pokemon List</h2>
         <Link to={'/pokedex'}>
@@ -52,7 +52,7 @@ function HomePage() {
         {renderPokemons}
       </Container>
       <Footer />
-    </HomeContainer>
+    </PageContainer>
   );
 }
 
