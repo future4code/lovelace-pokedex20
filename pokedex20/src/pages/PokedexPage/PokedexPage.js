@@ -1,25 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
-import Card from '../../components/Card';
 
-const PokedexContainer = styled.div`
+import Footer from '../../components/Footer';
+
+const PageContainer = styled.div`
   display: grid;
-  grid-template-rows: auto;
-  /* height: 98vh; */
-`
+  grid-template-rows: 100px 1fr 100px;
+  height: 98vh;
+`;
 
 const HeaderContainer = styled.div`
   border: 1px solid black;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding: 5px 15px;
 `;
 const MainContainer = styled.div`
-  border: 1px solid green;
-  width: 916px;
-  height: 500px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  gap: 10px;
 `;
 
 function PokedexPage() {
@@ -30,7 +33,7 @@ function PokedexPage() {
   };
 
   return (
-    <PokedexContainer>
+    <PageContainer>
       <HeaderContainer>
         <h2>Pokedex</h2>
         <button onClick={goBack}>Voltar para lista</button>
@@ -38,7 +41,8 @@ function PokedexPage() {
       <MainContainer>
 
       </MainContainer>
-    </PokedexContainer>
+      <Footer />
+    </PageContainer>
   );
 }
 

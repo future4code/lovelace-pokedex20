@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import useGetPokemons from '../../service/useGetPokemons';
+// import useGetPokemons from '../../service/useGetPokemons';
 import Card from '../../components/Card';
+import Footer from '../../components/Footer';
+import GlobalStateContext from '../../global/GlobalStateContext';
 
-const HomeContainer = styled.div`
+const PageContainer = styled.div`
   display: grid;
   grid-template-rows: 100px 1fr 100px;
   height: 98vh;
@@ -19,11 +21,6 @@ const Container = styled.div`
   gap: 10px;
 `;
 
-const FooterContainer = styled.div`
-  border: 1px solid black;
-  text-align: center;
-`;
-
 const HeaderContainer = styled.div`
   border: 1px solid black;
   display: flex;
@@ -33,13 +30,9 @@ const HeaderContainer = styled.div`
 `;
 
 function HomePage() {
-  const { pokemons, getPokemons } = useGetPokemons();
+  const { state } = useContext(GlobalStateContext);
 
-  useEffect(() => {
-    getPokemons();
-  }, []);
-
-  const renderPokemons = pokemons.map((pokemon) => {
+  const renderPokemons = state.pokemons.map((pokemon) => {
     return (
       <Card name={pokemon.name} key={pokemon.name}>
         {pokemon.name}
@@ -48,7 +41,7 @@ function HomePage() {
   });
 
   return (
-    <HomeContainer>
+    <PageContainer>
       <HeaderContainer>
         <h2>Pokemon List</h2>
         <Link to={'/pokedex'}>
@@ -58,10 +51,8 @@ function HomePage() {
       <Container>
         {renderPokemons}
       </Container>
-      <FooterContainer>
-        <h3>footer</h3>
-      </FooterContainer>
-    </HomeContainer>
+      <Footer />
+    </PageContainer>
   );
 }
 
